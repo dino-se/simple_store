@@ -72,7 +72,7 @@
                         <input class="form-control mt-2" id="pPic" type="file" placeholder="Upload file">
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary" id="btnAddProd" onclick="addProduct()">Save
+                        <button type="submit" class="btn btn-primary" id="btnAddProd"">Save
                             changes</button>
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     </div>
@@ -91,10 +91,11 @@
                 <form action="" class="UpDateff">
                     <div class="modal-body">
                         <p>Modal body text goes here.</p>
-                        <input type="text" id="pEId">
+                        <input type="hidden" id="pEId">
                         <input class="form-control" id="pEName" class="pEName" type="text" placeholder="Product Name">
                         <select class="form-select mt-2" id="pUpCat"></select>
                         <input class="form-control mt-2" id="pEQa" type="text" placeholder="Qauntity">
+                        <input class="form-control mt-2" id="pEPic" type="file" placeholder="Upload file">
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary" id="productUpdateMan">Save changes</button>

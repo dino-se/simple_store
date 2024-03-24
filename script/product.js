@@ -45,9 +45,11 @@ function loadProductData() {
   });
 
 
+document.querySelector('#btnAddProd').addEventListener('click', addProduct);
 
+  async function addProduct(event) {
+    event.preventDefault();
 
-  async function addProduct() {
     const formDataX = new FormData();
     formDataX.append('name', document.querySelector('#pName').value);
     formDataX.append('cat', document.querySelector('#pCat').value);
@@ -58,6 +60,7 @@ function loadProductData() {
         const response = await fetch("api/product/create.php", {
             method: "POST",
             body: formDataX,
+            // mode:"no-cors"
         });
 
         if (!response.ok) {
@@ -110,6 +113,7 @@ function loadProductData() {
     formDataY.append('name', document.querySelector("#pEName").value);
     formDataY.append('cat', document.querySelector("#pUpCat").value);
     formDataY.append('stock', document.querySelector("#pEQa").value);
+    formDataY.append('img', document.querySelector("#pEPic").files[0]);
   
       fetch("api/product/update.php", {
         method: "POST",
