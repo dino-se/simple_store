@@ -26,13 +26,12 @@ function loadProductData() {
   .then(data => {
       const selectElement = document.getElementById("pCat");
       const selectElementT = document.getElementById("pUpCat");
-      
+
       const defaultOption = document.createElement("option");
       defaultOption.text = "Select Category";
       defaultOption.disabled = true;
       defaultOption.selected = true;
-      
-      selectElement.appendChild(defaultOption.cloneNode(true));
+      selectElement.appendChild(defaultOption);
 
       data.forEach(category => {
           const option = document.createElement("option");
