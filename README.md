@@ -1,1 +1,1 @@
-"# simple_store" 
+# simple_store
