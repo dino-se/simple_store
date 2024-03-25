@@ -36,16 +36,16 @@
                     <div class="card-body col">
                         <input type="hidden" id="prodId" class="prodId">
                         <p class="card-text">Product Name:
-                            <span id="prodName">Product</span>
+                            <span id="prodName" class="fw-bold text-muted">Product</span>
                         </p>
                         <p class="card-text">Product Category:
-                            <span id="prodCat">Category</span>
+                            <span id="prodCat" class="fw-bold text-muted">Category</span>
                         </p>
                         <div>
                             <span>
-                                <p class="card-text">Qauntity:
-                                    <span id="prodStock">0</span>
-                                    <i class="bi bi-plus-lg float-end" type="button"
+                                <p class="card-text">Quantity:
+                                    <span id="prodStock" class="fw-bold text-muted">0</span>
+                                    <i class="bi bi-plus-lg float-end fs-4 text-success" type="button"
                                         onclick="updateStock(this.closest('.card').querySelector('.prodId').value, this.closest('.card').querySelector('#prodStock').textContent)"></i>
                                 </p>
                             </span>
@@ -70,18 +70,19 @@
             <div class="modal-content">
                 <form id="productForm">
                     <div class="modal-header">
-                        <h5 class="modal-title">Add Product</h5>
+                        <h5 class="modal-title">Add New Product</h5>
                     </div>
                     <div class="modal-body">
                         <!-- <p>Modal body text goes here.</p> -->
                         <input class="form-control" id="pName" class="pName" type="text" placeholder="Product Name">
                         <select class="form-select mt-2" id="pCat"></select>
-                        <input class="form-control mt-2" id="pQa" type="text" placeholder="Qauntity">
-                        <input class="form-control mt-2" id="pPic" type="file" placeholder="Upload file">
+                        <input class="form-control mt-2" id="pQa" type="number" placeholder="Quantity">
+                        <input class="form-control mt-2" id="pPic" type="file" placeholder="Upload file" onchange="displayImage()">
+                        <img src="" id="pvView" alt=" " class="rounded mt-2" width="75" height="75">
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary" id="btnAddProd"">SAVE</button>
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">CLOSE</button>
+                        <button type="submit" class="btn btn-primary" id="btnAddProd"">SAVE</button>
                     </div>
                 </form>
             </div>
@@ -101,12 +102,13 @@
                         <input type="hidden" id="pEId">
                         <input class="form-control" id="pEName" class="pEName" type="text" placeholder="Product Name">
                         <select class="form-select mt-2" id="pUpCat"></select>
-                        <input class="form-control mt-2" id="pEQa" type="text" placeholder="Qauntity">
-                        <input class="form-control mt-2" id="pEPic" type="file" placeholder="Upload file">
+                        <input class="form-control mt-2" id="pEQa" type="number" placeholder="Quantity">
+                        <input class="form-control mt-2" id="pEPic" type="file" placeholder="Upload file" onchange="displayImage()">
+                        <img src="" id="pView" alt=" " class="rounded mt-2" width="75" height="75">
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" id="productUpdateMan">SAVE CHANGES</button>
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">CLOSE</button>
+                        <button type="button" class="btn btn-primary" id="productUpdateMan">SAVE CHANGES</button>
                     </div>
                 </form>
             </div>

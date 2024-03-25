@@ -69,7 +69,7 @@ document.querySelector('#btnAddProd').addEventListener('click', addProduct);
         const data = await response.json();
 
         if (data.res === "success") {
-            location.reload();
+          location.reload();
         } else {
             console.error('Newton 2nd law:', data.error);
         }
@@ -84,12 +84,14 @@ document.querySelector('#btnAddProd').addEventListener('click', addProduct);
         var prodUpId = event.target.closest(".card").querySelector(".prodId").value;
         var prodUpName = event.target.closest(".card").querySelector("#prodName").textContent;
         var prodQName = event.target.closest(".card").querySelector("#prodStock").textContent;
+        var prodPImg = event.target.closest(".card").querySelector("#prodImg").src;
         var prodCatName = event.target.closest(".card").querySelector("#prodCat").textContent;
         
   
       document.querySelector("#pEId").value = prodUpId;
       document.querySelector("#pEName").value = prodUpName;
       document.querySelector("#pEQa").value = prodQName;
+      document.querySelector("#pView").src = prodPImg;
       var selectElement = document.querySelector("#pECat");
         var options = selectElement.options;
         for (var i = 0; i < options.length; i++) {
@@ -134,7 +136,7 @@ document.querySelector('#btnAddProd').addEventListener('click', addProduct);
     if (event.target.classList.contains("btnProdDelete")) {
         var prodId = event.target.closest(".card").querySelector(".prodId").value;
 
-        if (confirm(`Are you sure you want to delete this product?${prodId}`)) {
+        if (confirm(`Are you sure you want to delete this product?`)) {
             fetch(`api/product/delete.php?id=${prodId}`)
             .then(response => response.json())
             .then(result => {
@@ -153,5 +155,23 @@ function updateStock(prodUpId, prodQName) {
         console.log(data);
         location.reload();
     })
+}
+
+
+function displayImage() {
+  const inputs = document.querySelectorAll('#pEPic, #pPic');
+  const images = document.querySelectorAll('#pView, #pvView');
+
+  inputs.forEach((input, index) => {
+    if (input.files && input.files[0]) {
+      const reader = new FileReader();
+
+      reader.onload = function(e) {
+        images[index].src = e.target.result;
+      };
+
+      reader.readAsDataURL(input.files[0]);
+    }
+  });
 }
 
