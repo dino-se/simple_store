@@ -92,7 +92,7 @@ document.querySelector('#btnAddProd').addEventListener('click', addProduct);
       document.querySelector("#pEName").value = prodUpName;
       document.querySelector("#pEQa").value = prodQName;
       document.querySelector("#pView").src = prodPImg;
-      var selectElement = document.querySelector("#pECat");
+      var selectElement = document.querySelector("#pUpCat");
         var options = selectElement.options;
         for (var i = 0; i < options.length; i++) {
             if (options[i].value === prodCatName) {
@@ -101,6 +101,13 @@ document.querySelector('#btnAddProd').addEventListener('click', addProduct);
             }
         }
 
+      // const selectElementUp = document.getElementById("pUpCat");
+
+      // const defaultOption = document.createElement("option");
+      // defaultOption.text = prodCatName;
+      // defaultOption.hidden = true;
+      // defaultOption.selected = true;
+      // selectElementUp.appendChild(defaultOption);
   
       document.querySelector("#addCategoryModal").modal("show");
     }
